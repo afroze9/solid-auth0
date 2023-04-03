@@ -1,6 +1,6 @@
 {
   "name": "@afroze9/solid-auth0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A wrapper on top of auth0-spa-js for solidjs.",
   "author": "Afroze Amjad",
   "keywords": [
