@@ -1,6 +1,7 @@
 import { LogoutOptions, RedirectLoginOptions, User, createAuth0Client } from "@auth0/auth0-spa-js"
 import { createContext, createResource, createSignal, mergeProps, useContext } from "solid-js";
-import { Auth0Props, Auth0State } from "./@types";
+import { Auth0Props } from "./Auth0Props";
+import { Auth0State } from "./Auth0State";
 
 export const Auth0Context = createContext<Auth0State>();
 export const useAuth0 = <TUser extends User = User>(

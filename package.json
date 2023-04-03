@@ -1,6 +1,6 @@
 {
   "name": "@afroze9/solidjs-auth0",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A wrapper on top of auth0-spa-js for solidjs.",
   "author": "Afroze Amjad",
   "keywords": [
@@ -16,6 +16,7 @@
     }
   },
   "main": "dist/build/index.cjs.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc&&rollup -c",
     "prebuild": "rimraf dist && npm run format && npm run lint",
