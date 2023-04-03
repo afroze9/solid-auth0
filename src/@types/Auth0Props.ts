@@ -1,4 +1,4 @@
-import { JSX } from "solid-js";
+import { JSX } from 'solid-js';
 
 export type Auth0Props = {
   children: JSX.Element;
@@ -10,4 +10,4 @@ export type Auth0Props = {
   logoutRedirectUri: string;
   getUrl?: () => string;
   onLogin?: (appState: any, loginRedirectUri: string) => void;
-}
+};

@@ -1,4 +1,4 @@
-import { Auth0Client, LogoutOptions, RedirectLoginOptions, User } from "@auth0/auth0-spa-js";
+import { Auth0Client, LogoutOptions, RedirectLoginOptions, User } from '@auth0/auth0-spa-js';
 
 export interface AuthState<TUser extends User = User> {
   error?: Error;
