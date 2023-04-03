@@ -1,7 +1,7 @@
 import { RedirectLoginOptions } from "@auth0/auth0-spa-js";
 import { Component, Context, JSX, createEffect } from "solid-js";
-import { Auth0State } from "./@types";
 import { Auth0Context, useAuth0 } from "./Auth0";
+import { Auth0State } from "./Auth0State";
 
 const defaultOnRedirecting = (): JSX.Element => <></>;
 
