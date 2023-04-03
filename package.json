@@ -1,5 +1,5 @@
 {
-  "name": "solidjs-auth0",
+  "name": "@afroze9/solidjs-auth0",
   "version": "0.0.1",
   "description": "A wrapper on top of auth0-spa-js for solidjs.",
   "author": "Afroze Amjad",
@@ -30,9 +30,7 @@
     "dist"
   ],
   "dependencies": {
-    "@auth0/auth0-spa-js": "^2.0.4"
-  },
-  "peerDependencies": {
+    "@auth0/auth0-spa-js": "^2.0.4",
     "solid-js": "^1.7.1"
   },
   "devDependencies": {
