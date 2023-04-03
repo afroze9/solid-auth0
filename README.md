@@ -9,19 +9,19 @@ A SolidJS implementation for Auth0 using the package `@auth0/auth0-spa-js`. This
 ### NPM
 
 ```
-npm i @afroze9/solidjs-auth0
+npm i @afroze9/solid-auth0
 ```
 
 ### PNPM
 
 ```
-pnpm add @afroze9/solidjs-auth0
+pnpm add @afroze9/solid-auth0
 ```
 
 ### Yarn
 
 ```
-npm add @afroze9/solidjs-auth0
+npm add @afroze9/solid-auth0
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ npm add @afroze9/solidjs-auth0
 Note: Please ensure you have an SPA setup in Auth0 to configure the context.
 
 ```tsx
-import { Auth0 } from '@afroze9/solidjs-auth0';
+import { Auth0 } from '@afroze9/solid-auth0';
 
 const App: Component = () => {
   return (
@@ -52,7 +52,7 @@ const App: Component = () => {
 ### Elsewhere in the app
 
 ```tsx
-import { Auth0State, useAuth0 } from '@afroze9/solidjs-auth0';
+import { Auth0State, useAuth0 } from '@afroze9/solid-auth0';
 
 const TopNav: Component = () => {
   const auth0: Auth0State<User> | undefined = useAuth0();
@@ -64,7 +64,7 @@ const TopNav: Component = () => {
 ### To secure a route
 
 ```tsx
-import { withAuthenticationRequired } from '@afroze9/solidjs-auth0';
+import { withAuthenticationRequired } from '@afroze9/solid-auth0';
 
 const MyPage: Component = () => {
   return <div>This is a secure route</div>;
