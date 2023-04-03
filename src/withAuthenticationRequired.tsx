@@ -15,6 +15,7 @@ export interface WithAuthenticationRequiredOptions {
 }
 
 export const withAuthenticationRequired = <P extends object>(
+  /* tslint:disable-next-line */
   Component: Component<P>,
   options: WithAuthenticationRequiredOptions = {}
 ) => {

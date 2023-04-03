@@ -24,8 +24,8 @@ export const Auth0 = (props: Auth0Props) => {
   props = mergeProps(
     {},
     {
-      onLogin: onLogin,
-      getUrl: getUrl
+      onLogin,
+      getUrl
     },
     props
   );
@@ -62,10 +62,10 @@ export const Auth0 = (props: Auth0Props) => {
   return (
     <Auth0Context.Provider
       value={{
-        auth0Client: auth0Client,
+        auth0Client,
         isLoading: () => isAuthenticated() === undefined,
         isAuthenticated: () => !!isAuthenticated(),
-        user: user,
+        user,
         loginWithRedirect: async (options?: RedirectLoginOptions) => {
           const client = await auth0ClientPromise;
           client.loginWithRedirect({
