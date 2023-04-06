@@ -10,7 +10,7 @@ const defaultReturnTo = (): string => `${window.location.pathname}${window.locat
  * Component that wraps a protected route in the application, ensuring that the user is authenticated before rendering the content.
  * @param {ProtectedRouteProps} props - Props for the component.
  * @returns {(() => JSX.Element) | JSX.Element} - The protected route or a redirecting element.
-*/
+ */
 export const Protected = (props: ProtectedRouteProps): JSX.Element => {
   const auth0 = useAuth0();
   const onRedirecting = props.onRedirecting || defaultOnRedirecting;
