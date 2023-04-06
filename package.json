@@ -1,12 +1,16 @@
 {
   "name": "@afroze9/solid-auth0",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A wrapper on top of auth0-spa-js for solidjs.",
   "author": "Afroze Amjad",
   "keywords": [
     "auth0",
     "solidjs"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afroze9/solid-auth0"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

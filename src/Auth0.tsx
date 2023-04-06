@@ -1,5 +1,5 @@
 import { LogoutOptions, RedirectLoginOptions, User, createAuth0Client } from "@auth0/auth0-spa-js"
-import { createContext, createResource, createSignal, mergeProps, useContext } from "solid-js";
+import { JSX, createContext, createResource, createSignal, mergeProps, useContext } from "solid-js";
 import { Auth0Props } from "./Auth0Props";
 import { Auth0State } from "./Auth0State";
 
@@ -8,20 +8,40 @@ export const useAuth0 = <TUser extends User = User>(
   context = Auth0Context
 ): Auth0State<User> => useContext(context) as Auth0State<User>;
 
+/**
+ * Checks if a URL is a redirect callback from Auth0 by checking for the presence of 'code' and 'state' parameters in the URL query.
+ * @param {string} url - The URL to check.
+ * @returns {boolean} - Returns true if the URL is a redirect callback from Auth0 and false otherwise.
+ */
 const isRedirect = (url: string) => {
   const [, query] = url.split('?');
   return query && query.includes('code=') && query.includes('state=');
 }
 
+/**
+ * Returns the current URL.
+ * @returns {string} - The current URL.
+ */
 const getUrl = () => {
   return window.location.href;
 }
 
+/**
+ * Updates the URL in the browser history to remove any query parameters after an Auth0 login redirect.
+ * @param {any} _appState - Unused.
+ * @param {string} loginRedirectUri - The URI to redirect to after logging in.
+ */
 const onLogin = (_appState: any, loginRedirectUri: string) => {
   window.history.replaceState(undefined, '', loginRedirectUri);
 }
 
-export const Auth0 = (props: Auth0Props) => {
+/**
+ * Component that provides authentication using Auth0.
+ * @param props The props for the component.
+ * @returns The rendered component.
+ */
+export const Auth0 = (props: Auth0Props): JSX.Element => {
+  // Merge props with defaults
   props = mergeProps(
     {},
     {
@@ -31,6 +51,7 @@ export const Auth0 = (props: Auth0Props) => {
     props
   );
 
+  // Create the Auth0 client promise that resolves to an instance
   const auth0ClientPromise = createAuth0Client({
     domain: props.domain,
     clientId: props.clientId,
@@ -41,9 +62,11 @@ export const Auth0 = (props: Auth0Props) => {
     },
   });
 
+  // Create signals for the user and authentication status
   const [isAuthenticated, setIsAuthenticated] = createSignal<boolean | undefined>(undefined);
   const [user, setUser] = createSignal<User>();
 
+  // Create a resource for the Auth0 client instance
   const [auth0Client] = createResource(async () => {
     const client = await auth0ClientPromise;
     const url = props.getUrl!();
@@ -60,6 +83,7 @@ export const Auth0 = (props: Auth0Props) => {
     return client;
   });
 
+  // Render the component
   return (
     <Auth0Context.Provider
       value={{
