@@ -64,16 +64,18 @@ const TopNav: Component = () => {
 ### To secure a route
 
 ```tsx
-import { withAuthenticationRequired } from '@afroze9/solid-auth0';
+import { Protected } from '@afroze9/solid-auth0';
 
 const MyPage: Component = () => {
   return <div>This is a secure route</div>;
 };
 
 // You can pass any component to onRedirecting
-export default withAuthenticationRequired(MyPage, {
-  onRedirecting: () => <>Loading</>,
-});
+export default () => {
+  <Protected onRedirecting={<div>Redirecting...</div>}>
+    <MyPage />
+  </Protected>;
+};
 ```
 
 # Notes
